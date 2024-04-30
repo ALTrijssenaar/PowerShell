@@ -1,0 +1,16 @@
+$ErrorActionPreference = 'Stop'; # It is set to 'Stop' to ensure that any error that occurs in the script will be caught and handled.
+Set-StrictMode -Version Latest; # It is set to 'Latest' to ensure that the script uses the latest version of the strict mode.
+
+@('SilentlyContinue', 'Continue', 'Inquire', 'Ignore', 'Break') | ForEach-Object {
+   $VerbosePreference = $_;
+   Write-Verbose "${VerbosePreference}: Hello, world!"
+   Write-Host "${VerbosePreference}: Hello, world!"
+   Write-Host
+}
+
+@('Stop') | ForEach-Object {
+   $VerbosePreference = $_;
+   Write-Verbose "${VerbosePreference}: Hello, world!"
+   Write-Host "${VerbosePreference}: Hello, world!"
+}
+
